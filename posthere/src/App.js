@@ -8,7 +8,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import './App.css';
 
 function App() {
-  const classes = useStyles();
   return (
     <Router>
       <div className="App">
