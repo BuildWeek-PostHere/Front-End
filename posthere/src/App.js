@@ -1,22 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { makeStyles } from '@material-ui/styles';
-import { Container } from '@material-ui/core';
+import './App.css';
 
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
-import './App.css';
+import Dashboard from "./components/Dashboard";
+import NavBar from "./components/NavBar"
+import Register from "./components/Register";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* 
-          Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
-        */}
+        <NavBar />
         <Switch>
-          <PrivateRoute path="/protected" />
+          <PrivateRoute path="/protected" component={Dashboard}/>
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
           <Route exact path="/" component={Login} />
         </Switch>
       </div>

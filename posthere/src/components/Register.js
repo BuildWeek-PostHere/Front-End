@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import { TextField, Button } from '@material-ui/core';
 
-import { postLogin } from '../actions'
+import { registerUser } from '../actions'
 import { connect } from 'react-redux';
 
 import { useStyles } from '../hooks/styles'
 
-const Login = (props) => {
-const [ login, setLogin ] = useState({
+const Register = (props) => {
+const [ user, setUser ] = useState({
     credentials: {
       username: '',
       password: ''
     },
-    history: props.history
   });
 
   const handleChanges = e => {
-    setLogin({
+    setUser({
       credentials: {
-        ...login.credentials,
+        ...user.credentials,
         [e.target.name]: e.target.value
       }
     });
   };
 
-  const loginPost = e => {
+  const registerPost = e => {
     e.preventDefault();
-    console.log(login);
-    props.postLogin(login);
+    console.log(user);
+    props.registerUser(user);
     props.history.push('/protected');
   };
 
@@ -36,15 +35,15 @@ const [ login, setLogin ] = useState({
   return (
     <div className={classes.container}>
       <h1>Post Here 2!</h1>
-      <h3>Please log in below:</h3>
-      <form className={classes.form} onSubmit={loginPost} style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-evenly', height: '200px', alignItems: 'center'}}>
+      <h3>Please Register Below:</h3>
+      <form className={classes.form} onSubmit={registerPost} style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-evenly', height: '200px', alignItems: 'center'}}>
       <TextField
         className={classes.textField}
         id="username-input"
         label="Username"
         type="username"
         name="username"
-        value={login.credentials.username}
+        value={user.credentials.username}
         onChange={handleChanges}
         InputProps={{className: classes.input}}
       />
@@ -54,16 +53,16 @@ const [ login, setLogin ] = useState({
         label="Password"
         type="password"
         name="password"
-        value={login.credentials.password}
+        value={user.credentials.password}
         onChange={handleChanges}
         InputProps={{className: classes.input}}
       />
         <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         type="submit"
         >
-          Log in
+          Register
         </Button>
       </form>
     </div>
@@ -78,5 +77,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { postLogin }
-)(Login);
+  { registerUser }
+)(Register);
