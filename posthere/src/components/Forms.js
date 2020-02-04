@@ -30,6 +30,16 @@ const AddPost = (props) => {
         />
         <Button variant="contained" color="primary" type="submit">Submit!</Button>
       </form>
+      <form className="post" onSubmit={handleSubmit}>
+        <TextField 
+        required color="secondary"
+        name='post'
+        id='createPost'
+        label="Create or Paste a post!"
+        value=''
+        onChange={handleChanges}
+        />
+      </form>
     </>
   )
 }

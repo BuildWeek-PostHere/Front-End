@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
@@ -22,14 +21,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-=======
-import './App.css';
-
-function App() {
-  return (
-    null
->>>>>>> ca3a249ae67693aeded04a2d33647e1277da8395
-  );
+  )
 }
 
 export default App;
