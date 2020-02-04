@@ -1,6 +1,7 @@
 import React from "react";
 import Loader from "react-loader-spinner"
 import Posts from "./Posts"
+import { connect } from 'react-redux';
 
 const Dashboard = (props) => {
   return (
