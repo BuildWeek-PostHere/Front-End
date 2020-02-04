@@ -45,6 +45,6 @@ export const useStyles = makeStyles({
     margin: '20px',
     background: '#1A1A1B',
     color: 'white',
-    border: '1px solid darkgrey'
+    border: '1px solid #343536'
   }
 });
