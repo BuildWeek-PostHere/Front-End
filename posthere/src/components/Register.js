@@ -27,7 +27,7 @@ const [ user, setUser ] = useState({
     e.preventDefault();
     console.log(user);
     props.registerUser(user);
-    props.history.push('/protected');
+    props.history.push('/login');
   };
 
   const classes = useStyles();
