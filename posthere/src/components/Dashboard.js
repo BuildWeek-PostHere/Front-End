@@ -8,9 +8,22 @@ const Dashboard = (props) => {
       <div>
         <h1>Home</h1>
         <Posts />
+        {props.isLoading && <Loader type="Circles" color="#FF7127" height={80} width={80}/>}
       </div>
     </>
   )
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+  return {
+    isLoading: state.isLoading,
+    activity: state.activity,
+    error: state.error,
+    posts: state.posts
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Dashboard);
