@@ -33,6 +33,15 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexFlow: 'row',
     justifyContent: 'flex-start', 
-
+  },
+  post: {
+    display: 'flex',
+    flexFlow: 'column',
+    borderRadius: '5px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    minWidth: '300px',
+    margin: '20px'
   }
 });

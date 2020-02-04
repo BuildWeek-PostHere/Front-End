@@ -3,6 +3,7 @@ const initialState = {
   activity: null,
   error: null,
   token: null,
+  posts: null
 };
 
 export const reducer = (state = initialState, action) => {
@@ -16,11 +17,12 @@ export const reducer = (state = initialState, action) => {
     case 'POST_LOGIN_SUCCESS':
       console.log('inside reducer: ', action.payload)
       if(action.payload) {
+        localStorage.setItem('token', action.payload)
         return {
           ...state,
           isLoading: false,
           error: null,
-          token: action.payload
+          token: action.payload,
         }
       } else {
         return {
@@ -42,6 +44,22 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           error: null,
+        }
+      } else {
+        return {
+          ...state,
+          error: "Registration fail! Try again?",
+          isLoading: false,
+        }
+      }
+    case 'GET_POSTS_SUCCESS':
+      console.log('inside reducer: ', action.payload)
+      if(action.payload) {
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          posts: action.payload
         }
       } else {
         return {

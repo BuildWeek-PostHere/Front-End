@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { connect } from 'react-redux';
 
-export const axiosWithAuth = () => {
+export const axiosWithAuth = (props) => {
   return axios.create({
-    // config object
     baseURL: 'https://ordnajela.herokuapp.com/',
     headers: {
       Authorization: localStorage.getItem('token')

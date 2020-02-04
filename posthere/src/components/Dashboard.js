@@ -1,10 +1,13 @@
 import React from "react";
 
+import Posts from "./Posts"
+
 const Dashboard = (props) => {
   return (
     <>
       <div>
-        <h1>Dashboard renders</h1>
+        <h1>Home</h1>
+        <Posts />
       </div>
     </>
   )
