@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "posthere",
+  "builds": [{ "src": "posthere/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+  "routes": [
+      { "src": "/(.*)", "dest": "posthere/$1" }
+  ]
+}
