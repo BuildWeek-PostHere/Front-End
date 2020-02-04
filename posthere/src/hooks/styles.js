@@ -42,6 +42,9 @@ export const useStyles = makeStyles({
     alignItems: 'center',
     width: '100%',
     minWidth: '300px',
-    margin: '20px'
+    margin: '20px',
+    background: '#1A1A1B',
+    color: 'white',
+    border: '1px solid darkgrey'
   }
 });

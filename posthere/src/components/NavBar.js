@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
     display: 'flex',
     flexFlow: 'row',
     justifyContent: 'flex-start', 
-
+    background: '#1A1A1B'
   }
 });
 
