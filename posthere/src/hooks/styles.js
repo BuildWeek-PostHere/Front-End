@@ -1,8 +1,10 @@
 import { makeStyles } from '@material-ui/styles';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles(theme => ({
   textField: {
-    fontWeight: 500
+    border: '1px solid #343536',
+    borderRadius: '15px',
+    width: '60%'
   },
   input: {
     color: 'black'
@@ -10,14 +12,15 @@ export const useStyles = makeStyles({
   form: {
     width: '40%',
     minWidth: '400px',
-    background: 'white',
+    background: '#1A1A1B',
     borderRadius: '5px'
   },
   container: {
     display: 'flex',
     flexFlow: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    minWidth: '400px',
   },
   root: {
     flexGrow: 1,
@@ -46,5 +49,8 @@ export const useStyles = makeStyles({
     background: '#1A1A1B',
     color: 'white',
     border: '1px solid #343536'
+  },
+  darkinput: {
+    color: 'white'
   }
-});
+}));

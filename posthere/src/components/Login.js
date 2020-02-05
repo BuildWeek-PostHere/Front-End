@@ -40,23 +40,29 @@ const [ login, setLogin ] = useState({
       <form className={classes.form} onSubmit={loginPost} style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-evenly', height: '200px', alignItems: 'center'}}>
       <TextField
         className={classes.textField}
+        variant="filled"
+        color="secondary"
         id="username-input"
         label="Username"
         type="username"
         name="username"
         value={login.credentials.username}
         onChange={handleChanges}
-        InputProps={{className: classes.input}}
+        InputLabelProps={{className: classes.darkinput}}
+        inputProps={{className: classes.darkinput}}
       />
       <TextField
         className={classes.textField}
+        variant="filled"
+        color="secondary"
         id="password-input"
         label="Password"
         type="password"
         name="password"
         value={login.credentials.password}
         onChange={handleChanges}
-        InputProps={{className: classes.input}}
+        InputLabelProps={{className: classes.darkinput}}
+        inputProps={{className: classes.darkinput}}
       />
         <Button
         variant="contained"
