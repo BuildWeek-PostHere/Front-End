@@ -12,7 +12,6 @@ const AddPost = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.fetchCharacter(term);
     setTerm('');
   }
 
@@ -28,7 +27,7 @@ const AddPost = (props) => {
           value={term}
           onChange={handleChanges}
         />
-        <Button variant="contained" color="primary" type="submit">Submit!</Button>
+        <Button variant="contained" color="secondary" type="submit">Post</Button>
       </form>
       <form className="post" onSubmit={handleSubmit}>
         <TextField 
@@ -56,5 +55,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchCharacter }
+  {}
 )(CharacterSearchForm);
