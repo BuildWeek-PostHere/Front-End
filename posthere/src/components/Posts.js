@@ -1,17 +1,19 @@
 import React from "react";
-import { Container } from '@material-ui/core';
 import { connect } from 'react-redux';
-
+import { useStyles } from '../hooks/styles';
 import Post from "./Post";
 
+import { deletePost } from "../actions"
+
 const Posts = (props) => {
+  const classes = useStyles();
   return (
     <>
-      <Container>
+      <div className={classes.container}>
         {props.posts && props.posts.map(post => (
-          <Post post={post} key={post.id} />
+          <Post deletePost={props.deletePost} post={post} key={post.id} />
         ))}
-      </Container>
+      </div>
     </>
   )
 }
@@ -21,11 +23,10 @@ const mapStateToProps = state => {
     isLoading: state.isLoading,
     activity: state.activity,
     error: state.error,
-    posts: state.posts
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  { deletePost }
 )(Posts);
