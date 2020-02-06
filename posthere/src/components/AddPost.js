@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
+import { getPosts, getUserPosts } from '../actions'
 
 import { useStyles } from '../hooks/styles'
 
@@ -20,7 +21,11 @@ const AddPost = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(term.post);
+    props.getPosts();
+    props.getUserPosts(props.user_id);
     props.get(term.post);
+    props.getPosts();
+    props.getUserPosts(props.user_id);
     setTerm(initialTerm);
   }
 
@@ -73,5 +78,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getPosts, getUserPosts }
 )(AddPost);
