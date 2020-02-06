@@ -91,21 +91,17 @@ export const reducer = (state = initialState, action) => {
             posts: action.payload
           }
         }
-      } else if(!action.payload) {
+      } else if(state.user.posts.length > 0){
         return {
           ...state,
           isLoading: false,
           error: null,
-          user: {
-            ...state.user,
-            posts: []
-          }
-        }
+        } 
       } else {
         return {
           ...state,
-          error: "Registration fail! Try again?",
           isLoading: false,
+          error: null,
         }
       };
     case 'POST_POST_SUCCESS':
@@ -130,6 +126,10 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           error: null,
+          user: {
+            ...state.user,
+            posts: state.user.posts.filter(post => post.id !== action.payload)
+          }
         }
       } else {
         return {
@@ -145,7 +145,6 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           error: null,
-          posts: [...state.posts, action.payload]
         }
       } else {
         return {

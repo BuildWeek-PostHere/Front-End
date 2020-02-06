@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { useStyles } from '../hooks/styles';
 import Post from "./Post";
-import { deletePost, getPosts, getUserPosts } from "../actions"
+import { getPosts, getUserPosts } from "../actions"
 
 const Posts = (props) => {
   const classes = useStyles();
@@ -28,5 +28,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { deletePost, getPosts, getUserPosts }
+  { getPosts, getUserPosts }
 )(Posts);

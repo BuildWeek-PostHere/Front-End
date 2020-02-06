@@ -52,5 +52,11 @@ export const useStyles = makeStyles(theme => ({
   },
   darkinput: {
     color: 'white'
+  },
+  buttonBox: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    paddingBottom: '10px'
   }
 }));

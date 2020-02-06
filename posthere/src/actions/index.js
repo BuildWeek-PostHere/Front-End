@@ -85,7 +85,7 @@ export const editPost = (post) => {
   return dispatch => {
     dispatch({type: 'EDIT_START'})
     axiosWithAuth()
-      .put(`api/posts/${post.id}`, post)
+      .put(`api/posts/${post.id}`, post.post)
       .then(response => {
         console.log('Inside Edit', response)
         dispatch({type: 'EDIT_POST_SUCCESS', payload: response.data})
