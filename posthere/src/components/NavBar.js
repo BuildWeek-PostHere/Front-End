@@ -37,7 +37,7 @@ function NavBar(props) {
     <div>
       <AppBar  className={classes.navbar} position="static">
         <img className={classes.image} src={image} alt="Reddit logo" />
-        <Link className={classes.anchors} to="/protected">
+        <Link className={classes.anchors} to="/protected" onClick={() => {props.getUserPosts(props.user_id); props.getPosts()}}>
           <Tab value='1' className={classes.anchorText} label="Home"  />
         </Link>
         <Link className={classes.anchors} to="/login">

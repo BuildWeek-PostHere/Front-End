@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { TextField, Button } from '@material-ui/core';
-
-import { postLogin } from '../actions'
+import { postLogin, getPosts, getUserPosts } from '../actions'
 import { connect } from 'react-redux';
 
 import { useStyles } from '../hooks/styles'
+import { wait } from "../hooks/wait";
 
 const Login = (props) => {
 const [ login, setLogin ] = useState({
@@ -24,10 +24,16 @@ const [ login, setLogin ] = useState({
     });
   };
 
-  const loginPost = e => {
+  const loginPost = async(e) => {
     e.preventDefault();
     console.log(login);
     props.postLogin(login);
+
+    await wait();
+
+    await props.getPosts();
+    await props.getUserPosts();
+
     props.history.push('/protected');
   };
 
@@ -84,5 +90,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { postLogin }
+  { postLogin, getPosts, getUserPosts }
 )(Login);
