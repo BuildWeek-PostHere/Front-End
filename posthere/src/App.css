@@ -41,3 +41,62 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.textField {
+  border: 1px solid #343536;
+  border-radius: 15px;
+  width: 60%;
+}
+.input {
+  color: 'black'
+}
+.form {
+  width: 40%;
+  min-width: 400px;
+  background: #1A1A1B;
+  border-radius: 5px;
+}
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 400px;
+}
+.root {
+  flex-grow: 1;
+}
+.anchors {
+  text-decoration: none;
+  width: 140px;
+}
+.anchorText {
+  color: white;
+}
+.navbar {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+}
+.post {
+  display: flex;
+  flex-flow: column;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 300px;
+  margin: 20px;
+  background: #1A1A1B;
+  color: white;
+  border: 1px solid #343536;
+}
+.darkinput {
+  color: white;
+}
+.buttonBox {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 10px;
+}

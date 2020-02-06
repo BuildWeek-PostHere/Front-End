@@ -3,13 +3,12 @@ import { Button, TextField } from '@material-ui/core';
 import { getPosts, getUserPosts, editPost } from '../actions'
 import { connect } from 'react-redux';
 
-import { useStyles } from "../hooks/styles";
+import { container, form, textField, darkinput, buttonBox } from "../hooks/styles";
 import { wait } from "../hooks/wait";
 
 const EditPost = (props) => {
   const initialEditedTerm = {post: { title: props.post.title, best_place: 'NA', post_body: props.post.post_body, user_id: props.user_id }, id: props.post.id}
   const [newTerm, setNewTerm] = useState(initialEditedTerm);
-  const classes = useStyles();
 
   const handleChanges = (e) => {
     setNewTerm({
@@ -39,9 +38,9 @@ const EditPost = (props) => {
     <>
       {props.editing &&
         <>
-          <form className={classes.container} onSubmit={handleSubmit} style={{minHeight: '200px', justifyContent: 'space-evenly'}}>
+          <form style={form} onSubmit={handleSubmit}>
             <TextField 
-              className={classes.textField}
+              style={textField}
               variant="filled"
               color="secondary"
               name='title'
@@ -49,11 +48,11 @@ const EditPost = (props) => {
               label="Edit a Post Title!"
               value={newTerm.post.title}
               onChange={handleChanges}
-              InputLabelProps={{className: classes.darkinput}}
-              inputProps={{className: classes.darkinput}}
+              InputLabelProps={{style: darkinput}}
+              inputProps={{style: darkinput}}
             />
             <TextField 
-              className={classes.textField}
+              style={textField}
               variant="filled"
               color="secondary"
               name='post_body'
@@ -62,8 +61,8 @@ const EditPost = (props) => {
               value={newTerm.post.post_body}
               placeholder="This is where you place or paste your post to begin the super awesome process"
               onChange={handleChanges}
-              InputLabelProps={{className: classes.darkinput}}
-              inputProps={{className: classes.darkinput}}
+              InputLabelProps={{style: darkinput}}
+              inputProps={{style: darkinput}}
             />
             <Button variant="contained" color="secondary" type="submit" >Post Edit!</Button>
           </form>

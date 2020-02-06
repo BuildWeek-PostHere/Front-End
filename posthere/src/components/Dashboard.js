@@ -6,13 +6,12 @@ import AddPost from "./AddPost";
 import { Button } from "@material-ui/core"
 
 import { getPosts, addPost } from "../actions"
-import { useStyles } from '../hooks/styles'
+import { container } from '../hooks/styles'
 
 const Dashboard = (props) => {
-  const classes = useStyles();
   return (
     <>
-      <div className={classes.container}>
+      <div style={container}>
         <AddPost get={props.addPost} />
         {!props.isLoading && <Posts posts={props.posts}/>}
         {props.isLoading && <Loader type="Circles" color="#FF7127" height={80} width={80}/>}

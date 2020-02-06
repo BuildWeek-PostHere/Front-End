@@ -3,7 +3,7 @@ import { TextField, Button } from '@material-ui/core';
 import { registerUser } from '../actions'
 import { connect } from 'react-redux';
 
-import { useStyles } from '../hooks/styles'
+import { container, form, textField, darkinput, buttonBox, post } from "../hooks/styles";
 
 const Register = (props) => {
 const [ user, setUser ] = useState({
@@ -29,15 +29,13 @@ const [ user, setUser ] = useState({
     props.history.push('/login');
   };
 
-  const classes = useStyles();
-
   return (
-    <div className={classes.container}>
+    <div style={container}>
       <h1>Post Here 2!</h1>
       <h3>Please Register Below:</h3>
-      <form className={classes.form} onSubmit={registerPost} style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-evenly', height: '200px', alignItems: 'center'}}>
+      <form style={form} onSubmit={registerPost}>
       <TextField
-        className={classes.textField}
+        style={textField}
         variant="filled"
         color="secondary"
         id="username-input"
@@ -46,11 +44,11 @@ const [ user, setUser ] = useState({
         name="username"
         value={user.credentials.username}
         onChange={handleChanges}
-        InputLabelProps={{className: classes.darkinput}}
-        inputProps={{className: classes.darkinput}}
+        InputLabelProps={{style: darkinput}}
+        inputProps={{style: darkinput}}
       />
       <TextField
-        className={classes.textField}
+        style={textField}
         variant="filled"
         color="secondary"
         id="password-input"
@@ -59,8 +57,8 @@ const [ user, setUser ] = useState({
         name="password"
         value={user.credentials.password}
         onChange={handleChanges}
-        InputLabelProps={{className: classes.darkinput}}
-        inputProps={{className: classes.darkinput}}
+        InputLabelProps={{style: darkinput}}
+        inputProps={{style: darkinput}}
       />
         <Button
         variant="contained"
