@@ -1,6 +1,8 @@
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import axios from "axios";
 
+// Post the Login data to the backend
+
 export const postLogin = (login) => {
   return dispatch => {
     dispatch({ type: "START" });
@@ -16,6 +18,8 @@ export const postLogin = (login) => {
       });
   };
 };
+
+// Get all of the posts available
 
 export const getPosts = () => {
   return dispatch => {
@@ -33,6 +37,8 @@ export const getPosts = () => {
   }
 }
 
+// Get a specific user's posts
+
 export const getUserPosts = (id) => {
   return dispatch => {
     dispatch({type: 'START'})
@@ -48,6 +54,8 @@ export const getUserPosts = (id) => {
       });
   }
 }
+
+// Adding a post
 
 export const addPost = (post) => {
   return dispatch => {
@@ -65,6 +73,26 @@ export const addPost = (post) => {
   }
 }
 
+// Posting to Subreddit Suggestion
+
+export const findSubreddit = (post) => {
+  return dispatch => {
+    dispatch({type: 'START'})
+    axiosWithAuth()
+      .post('api/posts/subreddit', {"body": post.title})
+      .then(response => {
+        console.log('this is the response from Subreddit Post: ', response);
+        dispatch({type: 'SUBREDDIT_POST_SUCCESS', payload: response.data.title})
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({type: 'POST_FAIL'})
+      });
+  }
+}
+
+// Delete a Post
+
 export const deletePost = (id) => {
   return dispatch => {
     dispatch({type: 'START'})
@@ -80,6 +108,8 @@ export const deletePost = (id) => {
       });
   }
 }
+
+// Edit a Post
 
 export const editPost = (post) => {
   return dispatch => {
@@ -97,6 +127,8 @@ export const editPost = (post) => {
   }
 }
 
+// Register a new User
+
 export const registerUser = (user) => {
   return dispatch => {
     dispatch({ type: "POST_USER_START" });
@@ -112,11 +144,3 @@ export const registerUser = (user) => {
       });
   };
 };
-
-// const thunk = action => next => store => {
-//   if (typeof action === "function") {
-//     action();
-//   } else if (typeof action === "object") {
-//     next(action);
-//   }
-// };

@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Card, Button } from '@material-ui/core';
-import { useStyles } from "../hooks/styles";
+import { container, form, textField, darkinput, buttonBox, postStyle } from "../hooks/styles";
 import EditPost from "./EditPost";
+import FindSubreddit from "./FindSubreddit";
+
+// Individual Post to be mapped over
 
 const Post = ({ post, deletePost, getPosts, getUserPosts, user_id }) => {
   const [editing, setEditing] = useState(false);
-  const classes = useStyles();
-  // const runGetPosts = () => {
-  //   getPosts(); 
-  //   getUserPosts(user_id)
-  // }
 
   return (
     <>
-      <Card className={classes.post}>
+      <Card style={postStyle}>
         {!editing &&
           <>
             <h1>{post.title}</h1>
@@ -25,7 +23,18 @@ const Post = ({ post, deletePost, getPosts, getUserPosts, user_id }) => {
             <EditPost editing={editing} setEditing={setEditing} post={post} user_id={user_id}/>
           </>
         }
-        <div className={classes.buttonBox}>
+        <div style={buttonBox}>
+          {!editing && deletePost &&
+          <>
+            <Button onClick={() => {setEditing(true);}}
+              variant="contained"
+              color="secondary"
+            >
+              Edit!
+            </Button>
+            <FindSubreddit post={post}/>
+          </>
+          }
           {deletePost && 
             <>
               <Button onClick={() => {deletePost(post.id, user_id)}}
@@ -35,16 +44,6 @@ const Post = ({ post, deletePost, getPosts, getUserPosts, user_id }) => {
                 Delete!
               </Button>
             </>
-          }
-          {!editing && deletePost &&
-          <>
-            <Button onClick={() => {setEditing(true);}}
-              variant="contained"
-              color="secondary"
-            >
-              Edit!
-            </Button>
-          </>
           }
         </div>
       </Card>

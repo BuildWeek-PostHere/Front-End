@@ -8,6 +8,8 @@ import NavBar from "./components/NavBar"
 import Register from "./components/Register";
 import User from "./components/User";
 
+// Body for the entire application
+
 function App() {
   return (
     <Router>

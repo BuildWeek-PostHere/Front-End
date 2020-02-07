@@ -1,14 +1,19 @@
+// Initial State for Redux
+
 const initialState = {
   isLoading: false,
   activity: null,
   error: null,
   posts: null,
+  subreddit: null,
   user: {
     name: '',
     posts: null,
     user_id: null
   }
 };
+
+// Reducer for all of the actions
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,10 +28,6 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: null,
-        user: {
-          ...state.user,
-          posts: null
-        }
       }
     case 'POST_LOGIN_SUCCESS':
       console.log('inside reducer: ', action.payload)
@@ -145,6 +146,22 @@ export const reducer = (state = initialState, action) => {
           ...state,
           isLoading: false,
           error: null,
+        }
+      } else {
+        return {
+          ...state,
+          error: "Registration fail! Try again?",
+          isLoading: false,
+        }
+      };
+    case 'SUBREDDIT_POST_SUCCESS':
+      console.log('inside reducer: ', action.payload)
+      if(action.payload) {
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          subreddit: action.payload
         }
       } else {
         return {

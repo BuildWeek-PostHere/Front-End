@@ -3,8 +3,10 @@ import { TextField, Button } from '@material-ui/core';
 import { postLogin, getPosts, getUserPosts } from '../actions'
 import { connect } from 'react-redux';
 
-import { useStyles } from '../hooks/styles'
+import { container, form, textField, darkinput } from "../hooks/styles";
 import { wait } from "../hooks/wait";
+
+// Login component
 
 const Login = (props) => {
 const [ login, setLogin ] = useState({
@@ -37,15 +39,13 @@ const [ login, setLogin ] = useState({
     props.history.push('/protected');
   };
 
-  const classes = useStyles();
-
   return (
-    <div className={classes.container}>
+    <div style={container}>
       <h1>Post Here 2!</h1>
       <h3>Please log in below:</h3>
-      <form className={classes.form} onSubmit={loginPost} style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-evenly', height: '200px', alignItems: 'center'}}>
+      <form style={form} onSubmit={loginPost}>
       <TextField
-        className={classes.textField}
+        style={textField}
         variant="filled"
         color="secondary"
         id="username-input"
@@ -54,11 +54,11 @@ const [ login, setLogin ] = useState({
         name="username"
         value={login.credentials.username}
         onChange={handleChanges}
-        InputLabelProps={{className: classes.darkinput}}
-        inputProps={{className: classes.darkinput}}
+        InputLabelProps={{style: darkinput}}
+        inputProps={{style: darkinput}}
       />
       <TextField
-        className={classes.textField}
+        style={textField}
         variant="filled"
         color="secondary"
         id="password-input"
@@ -67,8 +67,8 @@ const [ login, setLogin ] = useState({
         name="password"
         value={login.credentials.password}
         onChange={handleChanges}
-        InputLabelProps={{className: classes.darkinput}}
-        inputProps={{className: classes.darkinput}}
+        InputLabelProps={{style: darkinput}}
+        inputProps={{style: darkinput}}
       />
         <Button
         variant="contained"

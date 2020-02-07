@@ -3,8 +3,10 @@ import { TextField, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getPosts, getUserPosts } from '../actions'
 
-import { useStyles } from '../hooks/styles'
+import { container, form, textField, darkinput, buttonBox, postStyle } from "../hooks/styles";
 import { wait } from "../hooks/wait";
+
+// Component to Add a Post to the backend
 
 const AddPost = (props) => {
   const initialTerm = {post: { title: '', best_place: 'NA', post_body: '', user_id: props.user_id }}
@@ -32,14 +34,12 @@ const AddPost = (props) => {
     setTerm(initialTerm);
   }
 
-  const classes = useStyles();
-
   return (
     <>
-      <div className={classes.container}>
-        <form className={classes.post} onSubmit={handleSubmit} style={{minHeight: '200px', justifyContent: 'space-evenly'}}>
+      <div style={container}>
+        <form style={postStyle} onSubmit={handleSubmit}>
           <TextField 
-            className={classes.textField}
+            style={textField}
             variant="filled"
             color="secondary"
             name='title'
@@ -47,11 +47,11 @@ const AddPost = (props) => {
             label="Create a Post Title!"
             value={term.post.title}
             onChange={handleChanges}
-            InputLabelProps={{className: classes.darkinput}}
-            inputProps={{className: classes.darkinput}}
+            InputLabelProps={{style: darkinput}}
+            inputProps={{style: darkinput}}
           />
           <TextField 
-            className={classes.textField}
+            style={textField}
             variant="filled"
             color="secondary"
             name='post_body'
@@ -60,8 +60,8 @@ const AddPost = (props) => {
             value={term.post.post_body}
             placeholder="This is where you place or paste your post to begin the super awesome process"
             onChange={handleChanges}
-            InputLabelProps={{className: classes.darkinput}}
-            inputProps={{className: classes.darkinput}}
+            InputLabelProps={{style: darkinput}}
+            inputProps={{style: darkinput}}
           />
           <Button variant="contained" color="secondary" type="submit" >Post</Button>
         </form>

@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { useStyles } from '../hooks/styles';
+import { container, form, textField, darkinput } from "../hooks/styles";
 import Post from "./Post";
 import { getPosts, getUserPosts } from "../actions"
 
+// Posts array for the getPosts action
+
 const Posts = (props) => {
-  const classes = useStyles();
   return (
     <>
-      <div className={classes.container}>
+      <div style={container}>
         {props.posts && props.posts.map(post => (
           <Post user_id={props.user_id} deletePost={props.deletePost} getPosts={props.getPosts} getUserPosts={props.getUserPosts} post={post} key={post.id} />
         ))}
