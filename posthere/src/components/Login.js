@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { container, form, textField, darkinput } from "../hooks/styles";
 import { wait } from "../hooks/wait";
 
+// Login component
+
 const Login = (props) => {
 const [ login, setLogin ] = useState({
     credentials: {

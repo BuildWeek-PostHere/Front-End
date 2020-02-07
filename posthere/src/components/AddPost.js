@@ -6,6 +6,8 @@ import { getPosts, getUserPosts } from '../actions'
 import { container, form, textField, darkinput, buttonBox, postStyle } from "../hooks/styles";
 import { wait } from "../hooks/wait";
 
+// Component to Add a Post to the backend
+
 const AddPost = (props) => {
   const initialTerm = {post: { title: '', best_place: 'NA', post_body: '', user_id: props.user_id }}
   const [term, setTerm] = useState(initialTerm);

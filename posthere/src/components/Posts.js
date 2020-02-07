@@ -4,6 +4,7 @@ import { container, form, textField, darkinput } from "../hooks/styles";
 import Post from "./Post";
 import { getPosts, getUserPosts } from "../actions"
 
+// Posts array for the getPosts action
 
 const Posts = (props) => {
   return (

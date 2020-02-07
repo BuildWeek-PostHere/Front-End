@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import { container, form, textField, darkinput, buttonBox, post } from "../hooks/styles";
 
+// Component to register a new user
+
 const Register = (props) => {
 const [ user, setUser ] = useState({
     credentials: {

@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { container, form, textField, darkinput, buttonBox } from "../hooks/styles";
 import { wait } from "../hooks/wait";
 
+// Component to Edit a Post from the User Page
+
 const EditPost = (props) => {
   const initialEditedTerm = {post: { title: props.post.title, best_place: 'NA', post_body: props.post.post_body, user_id: props.user_id }, id: props.post.id}
   const [newTerm, setNewTerm] = useState(initialEditedTerm);

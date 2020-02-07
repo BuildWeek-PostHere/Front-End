@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Card, Button } from '@material-ui/core';
 import { container, form, textField, darkinput, buttonBox, postStyle } from "../hooks/styles";
 import EditPost from "./EditPost";
+import FindSubreddit from "./FindSubreddit";
+
+// Individual Post to be mapped over
 
 const Post = ({ post, deletePost, getPosts, getUserPosts, user_id }) => {
   const [editing, setEditing] = useState(false);
@@ -29,6 +32,7 @@ const Post = ({ post, deletePost, getPosts, getUserPosts, user_id }) => {
             >
               Edit!
             </Button>
+            <FindSubreddit post={post}/>
           </>
           }
           {deletePost && 

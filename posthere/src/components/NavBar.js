@@ -45,6 +45,7 @@ function NavBar(props) {
         <Link style={anchors} to="/register">
           <Tab value='4' style={anchorText} label="Register"  />
         </Link>
+          <a style={{textDecoration: 'none'}} href="https://marketingsite-jko9hb01j.now.sh/"><Tab value='4' style={anchorText} label="Marketing"  /></a>
       </AppBar>
     </div>
   );
